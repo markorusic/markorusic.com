@@ -8,15 +8,15 @@ export const owner = {
 
 export const featuredBlogPosts = [
   {
-    title: 'Hello World',
-    summary: 'My first post',
-    slug: 'hello-world'
-  },
-  {
     title: 'Write Cleaner Reducers',
     summary:
       'Create cleaner, more readable, boilerplate-free reducers applicable to any JavaScript environment',
     slug: 'write-cleaner-reducers'
+  },
+  {
+    title: 'Hello World',
+    summary: 'My first post',
+    slug: 'hello-world'
   },
   {
     title: 'TODO',
