@@ -1,5 +1,5 @@
 import { getCacheKey } from 'lib/cache-factory';
-import { inMemoryCacheClient } from 'lib/in-memory-cache';
+import { cacheClient } from 'lib/redis-cache';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -10,11 +10,11 @@ export default async function handler(
     const slug = req.query.slug.toString();
 
     const key = getCacheKey(['post-views', slug]);
-    const currentViews = await inMemoryCacheClient.get<number>(key);
+    const currentViews = await cacheClient.get<number>(key);
 
     if (req.method === 'POST') {
       const updatedViews = currentViews + 1;
-      await inMemoryCacheClient.set(key, updatedViews);
+      await cacheClient.set(key, updatedViews);
       return res.status(200).json({
         total: updatedViews.toString()
       });
