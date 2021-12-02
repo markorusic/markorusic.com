@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://markorusic.com/sitemap.xml
