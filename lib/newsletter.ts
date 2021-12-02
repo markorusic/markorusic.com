@@ -1,4 +1,4 @@
-import { cache } from './cache';
+import { inMemoryCache } from './in-memory-cache';
 
 export const subscribe = async (email: string) => {
   const result = await fetch('https://www.getrevue.co/api/v2/subscribers', {
@@ -19,7 +19,7 @@ export const subscribe = async (email: string) => {
 };
 
 export const getSubscriberCount = () =>
-  cache.get({
+  inMemoryCache.get({
     key: ['subscriber-count'],
     maxAge: 1000 * 60 * 30,
     fetchFn: async () => {
