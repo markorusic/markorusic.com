@@ -1,10 +1,8 @@
+This project is based on [leerob.io](https://github.com/leerob/leerob.io)
+
 # markorusic.com
 
-- **Framework**: [Next.js](https://nextjs.org/)
-- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
-- **Deployment**: [Vercel](https://vercel.com)
-- **Content**: [MDX](https://github.com/mdx-js/mdx)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+## Personal webiste
 
 ## Overview
 
@@ -23,8 +21,8 @@
 ```bash
 $ git clone https://github.com/markorusic/markorusic.com.git
 $ cd markorusic.com
-$ yarn
-$ yarn dev
+$ touch .env
+$ cat .env.example > .env # Fill with valid env vars
+$ npm i
+$ npm run dev
 ```
-
-Create a `.env` file similar to [`.env.example`](https://github.com/markorusic/markorusic.com/blob/main/.env.example).
