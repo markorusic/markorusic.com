@@ -17,6 +17,8 @@ This post was previously published on [Medium](https://betterprogramming.pub/wri
 
 ## Introduction
 
+So, what is a reducer?
+
 It’s a pure function that takes current state and action and returns a new state based on them. That’s it!
 
 The idea of reducers was greatly popularized in the React ecosystem by Redux library, and nowadays it’s pretty much the standard way of thinking about application state.
@@ -100,6 +102,7 @@ export const counterReducer = (state = initialState, action) => {
     default:
       // Instead of returning same state, our default case now throws error
       // notifying us that we tried to use unknown action type
+      // Note for Redux users: Note about Redux: you shouldn't do this if you're using Redux. In Redux it's usually practice to combine all reducers in one with something like `combineReducers`, so every reducer is invoked every time action occurs, so if one of them throws error, everything falls apart. Instead just do a regular "return state".
       throw new Error(`Unknown action type: ${action.type}`);
   }
 };
