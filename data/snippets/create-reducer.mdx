@@ -1,0 +1,45 @@
+---
+title: 'Create reducer'
+description: 'Utility for creating better reducer functions.'
+logo: 'javascript.png'
+---
+
+There's a [blog post](/blog/write-cleaner-reducers) on why would you want something like this.
+
+```js
+export const createReducer =
+  (handlers, initialState = {}) =>
+  (state = initialState, action) => {
+    const handler = handlers[action.type];
+    if (!handler) {
+      throw new Error(`Unknown action type: ${action.type}`);
+    }
+    const nextState = handler(state, action);
+    return { ...state, ...nextState };
+  };
+```
+
+## Usage
+
+```js
+import { createReducer } from './create-reducer';
+
+const initialState = { count: 0 };
+
+export const actionTypes = {
+  increment: 'increment',
+  decrement: 'decrement'
+};
+
+export const counterReducer = createReducer(
+  {
+    [actionTypes.increment]: (state) => ({
+      count: state.count + 1
+    }),
+    [actionTypes.decrement]: (state) => ({
+      count: state.count - 1
+    })
+  },
+  initialState
+);
+```

@@ -1,0 +1,77 @@
+---
+title: 'usePersistedQuery hook'
+description: 'Persist your fetch data easily.'
+logo: 'react.png'
+---
+
+Combination of react-query and simple caching abstraction. It allows us to easily cache/persist results of async functions. The most common use case is caching/persisting results of HTTP requests.
+
+In this snippet we're persisting data to browser's `localStorage`.
+
+`cache-factory` module is described in it's own [snippet](/snippets/cache-factory).
+
+```tsx
+import { QueryKey, useQuery, UseQueryOptions } from 'react-query';
+import {
+  CacheClient,
+  CacheKey,
+  CacheOptions,
+  createCache
+} from './cache-factory';
+
+export const clientCache = createCache({
+  async get<T>(key: string) {
+    const rawValue = localStorage.getItem(key);
+    if (rawValue) {
+      return JSON.parse(rawValue) as T;
+    }
+    return null;
+  },
+  async set(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  },
+  async delete(key) {
+    localStorage.removeItem(key);
+  }
+});
+
+type PersistedQueryOptions<T> = Omit<
+  UseQueryOptions<T>,
+  'queryFn' | 'queryKey'
+> &
+  Omit<CacheOptions<T>, 'fetchFn' | 'key'> & {
+    queryFn: CacheOptions<T>['fetchFn'];
+    queryKey: CacheOptions<T>['key'];
+  };
+
+export function usePersistedQuery<T>({
+  queryFn,
+  queryKey,
+  ...options
+}: PersistedQueryOptions<T>) {
+  return useQuery({
+    ...options,
+    queryKey: queryKey as QueryKey,
+    queryFn: () =>
+      clientCache.get<T>({
+        ...options,
+        key: queryKey,
+        fetchFn: queryFn
+      })
+  });
+}
+```
+
+## Usage
+
+```tsx
+import { usePersistedQuery } from './use-persisted-query';
+
+export const useFeaturedPosts = () => {
+  return usePersistedQuery({
+    maxAge: 1000 * 60,
+    queryKey: ['featured-posts'],
+    queryFn: () => fetch('/api/featured-posts').then((r) => r.json())
+  });
+};
+```

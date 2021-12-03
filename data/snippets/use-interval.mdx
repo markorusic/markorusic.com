@@ -1,0 +1,46 @@
+---
+title: 'useInterval hook'
+description: 'Continually executes function after given ms interval'
+logo: 'react.png'
+---
+
+```tsx
+import { useEffect, useLayoutEffect, useRef } from 'react';
+
+export function useInterval(callback: () => void, delay: number | null) {
+  const callbackRef = useRef(callback);
+
+  useLayoutEffect(() => {
+    callbackRef.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    if (!delay && delay !== 0) {
+      return;
+    }
+    const id = setInterval(() => callbackRef.current(), delay);
+    return () => clearInterval(id);
+  }, [delay]);
+}
+```
+
+## Usage
+
+```tsx
+import React, { useState } from 'react';
+import { useInterval } from './use-interval';
+
+export default function App() {
+  const [visible, setVisible] = useState(true);
+
+  const toggle = () => setVisible((v) => !v);
+
+  useInterval(toggle, 5000);
+
+  return (
+    <div>
+      <p>{visible ? 'Hi' : null}</p>
+    </div>
+  );
+}
+```

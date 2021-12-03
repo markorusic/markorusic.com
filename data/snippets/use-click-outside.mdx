@@ -1,0 +1,81 @@
+---
+title: 'useClickOutside hook'
+description: 'Useful with modals, menues and similar UI elements.'
+logo: 'react.png'
+---
+
+```tsx
+import { useRef, useEffect } from 'react';
+
+export function useClickOutside(callback: () => void) {
+  const ref = useRef<any>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current?.contains(event.target as Node)) {
+        callback();
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [callback]);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (ref.current && event.key === 'Escape') {
+        callback();
+      }
+    };
+    document.addEventListener('keyup', handleEscape);
+    return () => document.removeEventListener('keyup', handleEscape);
+  }, [callback]);
+
+  return ref;
+}
+```
+
+## Usage
+
+```tsx
+import React, { FC } from 'react';
+import Portal from '@reach/portal';
+import { useClickOutside } from './hooks/use-click-outside';
+
+export interface ModalProps {
+  isOpen: boolean;
+  toggle: (value?: boolean) => void;
+}
+
+export const Modal: FC<ModalProps> = ({ isOpen, toggle, children }) => {
+  const modalContentRef = useClickOutside(toggle);
+  if (!isOpen) {
+    return null;
+  }
+  return (
+    <Portal>
+      <div
+        className="modal-mask"
+        style={{ display: isOpen ? undefined : 'none' }}
+      >
+        <div ref={modalContentRef} className="modal-wrapper">
+          <div className="modal-container">
+            <div className="modal-header-ss">
+              <a
+                role="button"
+                className="top-right close-modal"
+                onClick={() => toggle(false)}
+              >
+                <i className="fa fa-times" aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className="modal-body">{children}</div>
+          </div>
+        </div>
+      </div>
+    </Portal>
+  );
+};
+```

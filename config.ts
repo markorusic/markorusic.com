@@ -8,6 +8,11 @@ export const owner = {
 
 export const featuredBlogPosts = [
   {
+    title: 'Cache your data reliably',
+    summary: 'Make caching easy and maintainable in any JavaScript environment',
+    slug: 'caching'
+  },
+  {
     title: 'Write Cleaner Reducers',
     summary:
       'Create cleaner, more readable, boilerplate-free reducers applicable to any JavaScript environment',
@@ -17,10 +22,5 @@ export const featuredBlogPosts = [
     title: 'Hello World',
     summary: 'My first post',
     slug: 'hello-world'
-  },
-  {
-    title: 'TODO',
-    summary: 'This will be my new awesome post',
-    slug: 'todo'
   }
 ];

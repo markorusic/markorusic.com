@@ -12,6 +12,7 @@ export default function Blog({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = posts
+    .slice()
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
@@ -23,24 +24,21 @@ export default function Blog({
   return (
     <Container
       title={`Blog – ${owner.name}`}
-      description="Thoughts on the software industry, programming, tech, videography, music, and my personal life."
+      description="My thoughts on the software industry, programming, tech, etc..."
     >
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Blog
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sint,
-          commodi adipisci temporibus quos dolores, sequi tempore iure quas
-          asperiores inventore. Officiis quam, inventore tempore voluptatem
-          maiores consectetur eos velit?
+          My thoughts on the software industry, programming, tech, etc...
         </p>
         <div className="relative w-full mb-4">
           <input
-            aria-label="Search articles"
+            aria-label="Search articles..."
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Search articles"
+            placeholder="Search articles..."
             className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-200 rounded-md dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-gray-100"
           />
           <svg

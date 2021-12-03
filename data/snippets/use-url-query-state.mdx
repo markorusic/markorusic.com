@@ -1,0 +1,51 @@
+---
+title: 'useUrlQueryState hook'
+description: 'Enables us to sync state with URL's query parameters. Most common use case is when we need to shareable link to filtered data, so we sync our filtering state with query params.'
+logo: 'react.png'
+---
+
+```tsx
+export function useURLQuery<T>(initialValues?: T) {
+  const location = useLocation();
+  const history = useHistory();
+
+  const params = {
+    ...initialValues,
+    ...Object.fromEntries(new URLSearchParams(location.search))
+  };
+  const setParam = (name: keyof T, value: string) => {
+    const newParams = Object.entries({
+      ...params,
+      [name]: value
+    }).reduce((a, [k, v]) => (v == null ? a : ((a[k] = v), a)), {});
+    const search = new URLSearchParams(newParams).toString();
+    history.push({ search });
+  };
+
+  return {
+    params,
+    setParam
+  };
+}
+```
+
+## Usage
+
+```tsx
+import { useUrlQueryState } from './use-url-query-state';
+// Imagine all of these modules are implemented properly
+import { PostList, PostTitleFilter, PostTopicFilter } from './post-components';
+import { useFeaturedPosts } from './use-featured-posts';
+
+export function App() {
+  const { params, setParam } = useUrlQueryState();
+  const data = useFeaturedPosts(params);
+  return (
+    <div>
+      <PostTitleFilter onChange={(value) => setParam('title', value)} />
+      <PostTopicFilter onChange={(value) => setParam('topic', value)} />
+      <PostList data={data} />
+    </div>
+  );
+}
+```
