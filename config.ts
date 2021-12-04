@@ -8,7 +8,7 @@ export const owner = {
 
 export const featuredBlogPosts = [
   {
-    title: 'Cache your data reliably',
+    title: 'Cache Your Data Reliably',
     summary: 'Make caching easy and maintainable in any JavaScript environment',
     slug: 'caching'
   },
