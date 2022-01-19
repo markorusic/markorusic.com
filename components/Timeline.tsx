@@ -69,16 +69,25 @@ export default function Timeline() {
       <Divider />
       <Year>2018</Year>
       <ul>
-        <Step title="Got Into Telco Industry"></Step>
-        <Step title="Side Projects"></Step>
-        <Step title="Hackathons"></Step>
-        <Step title="Built my first backend app with Java/Spring Boot">
-          It was backend for CMS that
+        <Step title="Got Into Telco Industry">
+          Started working on my company's primary product, video streaming
+          platform for telco operators.
         </Step>
-        <Step title="Built Web Apps With Vue.js"></Step>
-        <Step title="Experimented With Tech Stacks"></Step>
-        <Step title="Got Into React/React Native"></Step>
-        <Step title="Architected Huge Web App"></Step>
+        <Step title="Side Projects">
+          Did few side projects, mostly web shops. Based on Laravel, MySQL,
+          jQuery or Vue.
+        </Step>
+        <Step title="Hackathons">
+          Attended 5 hackathons with my friends, mostly just for fun. We ended
+          up 3rd every time, but we met some interesting people and learned
+          about different domains.
+        </Step>
+        <Step title="Experimented With Tech Stacks">
+          Built my first backend app with Java/Spring Boot. Built multiple SPAs
+          with Vue and React, also got into React Native. Basically did a lot of
+          things with different technologies.
+        </Step>
+        <Step title="Architected a Large Scale Web App"></Step>
       </ul>
       <Divider />
       <Year>2017</Year>
