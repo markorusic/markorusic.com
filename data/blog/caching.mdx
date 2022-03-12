@@ -1,26 +1,56 @@
 ---
-title: 'Cache Your Data Reliably'
+title: 'Web Caching Patterns'
 publishedAt: '2021-12-01'
-summary: 'Make caching easy and maintainable in any JavaScript environment'
+summary: 'Make caching easy and maintainable in any web environment'
 image: '/static/images/write-cleaner-reducers/banner.jpeg'
 ---
 
 ## Introduction
 
-What is caching?
+In computing, a cache is a high-speed data storage layer which stores a subset of data, typically transient in nature, so that future requests for that data are served up faster than is possible by accessing the data’s primary storage location. Caching allows you to efficiently reuse previously retrieved or computed data.
 
-- basic ideas behind cache
+The main use case for implementing a caching layer of any sort would be performance optimization of slow or expensive computation. That way we can possibly save computing power, nework calls, improve overall UX of our apps, etc...
 
-Why do we need it?
+There are many types of cache, as well as many ways to implement them. In this article we will focus on those who help improve web performace. We'll look at HTTP level caching, server side caching, client side caching, and we'll also build neat little utility for implementing SWR (stale while revalidate) caching pattern.
 
-- optimization/performance
-- use cases for caching
+## HTTP Caching
 
-What types of cache can we have?
+HTTP is a protocol is a cornerstone of every web app. It enables us to transmit data between clients and servers. Every web developer should be familiar with it, if not <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP" target="_blank" rel="noopener noreferrer">mdn docs</a> are great place to start.
 
-- cover server side
-- cover cdn
-- cover client side (in-memory, persistance)
+HTTP has a built-in mechanism for caching data. Main point of it being reducing network usage and latency in order to serve data faster.
+
+**Cahce-Control** header is used to define the caching strategy. We can set it's value on the server and tell the browser how to cache requested resource.
+
+Let's see a practital example with node.js:
+
+```js
+import { createServer } from 'http';
+
+// we're making simple http server that returns html page
+let server = createServer((request, response) => {
+  let html = page({ title: 'Home' });
+  response.end(html);
+});
+
+server.listen(3000);
+
+function page({ title }) {
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${title}</title>
+    </head>
+    <body>
+        <h1>${title}</h1>
+    </body>
+    </html>
+    `;
+}
+```
 
 ## Practical example
 

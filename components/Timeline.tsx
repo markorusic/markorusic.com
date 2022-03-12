@@ -83,7 +83,7 @@ export default function Timeline() {
       <ul>
         <Step title="Graduated College 🎓">
           After a lot of time and hard work, I finally got my degree. Met some
-          great people here and learned a lot of interesting stuff.
+          great people there and learned a lot of interesting stuff.
         </Step>
         <Step title="Frontend Multitenancy Framework">
           Worked on a internal framework for quick and easy scaffolding of telco
