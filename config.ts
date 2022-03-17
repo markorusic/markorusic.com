@@ -7,11 +7,11 @@ export const owner = {
 };
 
 export const featuredBlogPosts = [
-  {
-    title: 'Cache Your Data Reliably',
-    summary: 'Make caching easy and maintainable in any JavaScript environment',
-    slug: 'caching'
-  },
+  // {
+  //   title: 'Cache Your Data Reliably',
+  //   summary: 'Make caching easy and maintainable in any JavaScript environment',
+  //   slug: 'caching'
+  // },
   {
     title: 'Write Cleaner Reducers',
     summary:
