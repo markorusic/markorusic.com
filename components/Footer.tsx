@@ -53,6 +53,11 @@ export default function Footer() {
               Snippets
             </a>
           </Link>
+          <Link href="/resume">
+            <a className="text-gray-500 hover:text-gray-600 transition">
+              Resume
+            </a>
+          </Link>
         </div>
       </div>
     </footer>
