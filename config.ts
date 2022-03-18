@@ -75,7 +75,7 @@ export const resume = {
       url: 'https://github.com/markorusic'
     },
     {
-      icon: 'medium',
+      icon: 'globe',
       text: 'markorusic.com',
       url: 'https://markorusic.com'
     }
