@@ -120,7 +120,7 @@ export default function Resume() {
                 {resume.skils.map((skill, i) => (
                   <div
                     key={i}
-                    className="border border-black rounded-lg px-4 py-1 mr-1 mb-1"
+                    className="border border-gray-500 rounded-md px-2 py-1 mr-1 mb-1"
                   >
                     {skill}
                   </div>
