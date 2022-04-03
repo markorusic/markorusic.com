@@ -115,7 +115,7 @@ export default function Resume() {
             </div>
 
             <div className={spacing.section}>
-              <h4 className={typography.title_m}>Skils</h4>
+              <h4 className={typography.title_m}>Skills</h4>
               <div className={cx('flex flex-wrap', spacing.section)}>
                 {resume.skils.map((skill, i) => (
                   <div
