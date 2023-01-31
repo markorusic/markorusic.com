@@ -30,8 +30,8 @@ export const resume = {
   name: 'Marko Rusić',
   title: 'Frontend Engineer with expertise in React.js',
   bio: [
-    "For the past 5 years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.",
-    'During the past year, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of reporting to my manager, setting proper time estimates on tasks, and communicating between the team and the product owners.',
+    "For the past 6 years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.",
+    'During my career, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of reporting to my manager, setting proper time estimates on tasks, and communicating between the team and the product owners.',
     'I’m resourceful and curious. I know where and how to find answers to my questions in order to provide high-quality work. I enjoy working in a team of hardworking and ambitious individuals.'
   ],
   skils: [
@@ -40,16 +40,10 @@ export const resume = {
     'React',
     'React Native',
     'Next.js',
-    'Vue.js',
+    'Remix',
     'REST',
-    'PHP',
-    'Laravel',
-    'Java',
-    'Spring Boot',
     'MySQL',
-    'MongoDB',
-    'HTML5',
-    'CSS3'
+    'Redis'
   ],
   links: [
     {
@@ -82,13 +76,32 @@ export const resume = {
   ],
   workExperience: [
     {
+      position: 'Frontend Engineer',
+      company: 'Povio',
+      location: 'Belgrade, Serbia',
+      time: '04/2022 – Present',
+      achievements: [
+        {
+          content: 'Managed client side app development'
+        },
+        {
+          content: 'Ensured that software met product and design requirements'
+        }
+      ]
+    },
+    {
       position: 'Frontend Team Lead',
       company: 'NetCast',
       location: 'Belgrade, Serbia',
-      time: '09/2019 – Present',
+      time: '01/2019 – 01/2023',
       achievements: [
         {
-          content: 'Architected and managed client side app development'
+          content:
+            'Architected and developed large scale back-office portal for managing video streaming platform. Tech stack: React, TypeScript'
+        },
+        {
+          content:
+            'Architected and developed end user video streaming cross platform application. Tech stack: React, React Native, TypeScript'
         },
         {
           content: 'Mentored and reviewed team members'
@@ -98,26 +111,6 @@ export const resume = {
         },
         {
           content: 'Ensured that software met product and design requirements'
-        }
-      ]
-    },
-    {
-      position: 'Frontend Engineer',
-      company: 'NetCast',
-      location: 'Belgrade, Serbia',
-      time: '01/2019 – Present',
-      achievements: [
-        {
-          content:
-            'Created interactive command line interface for generating boilterplate pieces of code. Tech stack: Node JS'
-        },
-        {
-          content:
-            'Architected and developed large scale back-office portal for managing video streaming platform. Tech stack: React, TypeScript'
-        },
-        {
-          content:
-            'Architected and developed end user video streaming cross platform application. Tech stack: React, React Native, TypeScript'
         }
       ]
     },
