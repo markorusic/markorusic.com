@@ -82,16 +82,16 @@ export const resume = {
       time: '04/2022 – Present',
       achievements: [
         {
-          content: `Develop multiple features using TypeScript and React with high quality.`
+          content: `Developed features using TypeScript and React with high quality`
         },
         {
-          content: `Improve the efficiency and quality of the team's work by implementing new development processes`
+          content: `Improved the efficiency and quality of the team's work by implementing new development processes`
         },
         {
-          content: `Collaborate with stakeholders to refine requirements and ensure successful implementation of features`
+          content: `Collaborated with stakeholders to refine requirements and ensure successful implementation of features`
         },
         {
-          content: `Conduct code reviews and provide constructive feedback to other developers`
+          content: `Conducted code reviews and provide constructive feedback to other developers`
         }
       ]
     },
