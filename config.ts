@@ -28,7 +28,7 @@ export const featuredBlogPosts = [
 export const resume = {
   lang: 'en',
   name: 'Marko Rusić',
-  title: 'Frontend Engineer with expertise in React.js',
+  title: 'Software Engineer',
   bio: [
     "For the past 6 years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.",
     'During my career, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of reporting to my manager, setting proper time estimates on tasks, and communicating between the team and the product owners.',
@@ -78,14 +78,20 @@ export const resume = {
     {
       position: 'Frontend Engineer',
       company: 'Povio',
-      location: 'Belgrade, Serbia',
+      location: 'Remote',
       time: '04/2022 – Present',
       achievements: [
         {
-          content: 'Managed client side app development'
+          content: `Develop multiple features using TypeScript and React with high quality.`
         },
         {
-          content: 'Ensured that software met product and design requirements'
+          content: `Improve the efficiency and quality of the team's work by implementing new development processes`
+        },
+        {
+          content: `Collaborate with stakeholders to refine requirements and ensure successful implementation of features`
+        },
+        {
+          content: `Conduct code reviews and provide constructive feedback to other developers`
         }
       ]
     },
