@@ -24,7 +24,7 @@ export default function Home() {
               Software Developer
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-16">
-              Doing software development of all kinds, mostly client-side apps.
+              Doing software development of all kinds, mostly web/mobile apps.
               Writing about boring tech stuff. React, React Native, TypeScript,
               Next.js, etc...
             </p>
