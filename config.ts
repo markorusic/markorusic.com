@@ -30,7 +30,7 @@ export const resume = {
   name: 'Marko Rusić',
   title: 'Software Engineer',
   bio: [
-    "For the past 6 years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.",
+    "For the past 7 years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.",
     'During my career, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of reporting to my manager, setting proper time estimates on tasks, and communicating between the team and the product owners.',
     'I’m resourceful and curious. I know where and how to find answers to my questions in order to provide high-quality work. I enjoy working in a team of hardworking and ambitious individuals.'
   ],
