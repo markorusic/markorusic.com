@@ -21,7 +21,7 @@ export default function Home() {
               {owner.name}
             </h1>
             <h2 className="text-lg text-gray-700 dark:text-gray-200 mb-4">
-              Software Developer
+              Software Engineer
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-16">
               Doing software development of all kinds, mostly web/mobile apps.
