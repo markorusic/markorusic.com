@@ -23,7 +23,7 @@ const spacing = {
 
 export default function Resume() {
   return (
-    <div className="w-full bg-white text-black text-sm">
+    <div className="w-full bg-white text-black text-sm min-h-screen">
       <Head>
         <title>Resume - Marko Rusić</title>
       </Head>
@@ -64,7 +64,7 @@ export default function Resume() {
         </div>
 
         <div className="flex">
-          <div className="w-6/12">
+          <div className="w-5/12">
             <div className={spacing.section}>
               <h4 className={typography.title_m}>About me</h4>
               <div>
@@ -76,29 +76,6 @@ export default function Resume() {
               </div>
             </div>
 
-            <div className={spacing.section}>
-              <h4 className={typography.title_m}>Work Experience</h4>
-              {resume.workExperience.map((work, i) => (
-                <div key={i} className={spacing.section}>
-                  <h3 className={typography.title_s}>{work.position}</h3>
-                  <h4>{work.company}</h4>
-                  <div className={cx('flex justify-between', typography.meta)}>
-                    <span>{work.time}</span>
-                    <span>{work.location}</span>
-                  </div>
-                  <ul className="mt-1">
-                    {work.achievements.map((achievement, i) => (
-                      <li key={i}> - {achievement.content}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="w-1/12" />
-
-          <div className="w-5/12">
             <div className={spacing.section}>
               <h4 className={typography.title_m}>Education</h4>
               <div>
@@ -116,36 +93,18 @@ export default function Resume() {
 
             <div className={spacing.section}>
               <h4 className={typography.title_m}>Skills</h4>
-              <div className={cx('flex flex-wrap', spacing.section)}>
-                {resume.skils.map((skill, i) => (
-                  <div
-                    key={i}
-                    className="border border-gray-500 rounded-md px-2 py-1 mr-1 mb-1"
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className={spacing.section}>
-              <h4 className={typography.title_m}>Freelance Projects</h4>
-              <div className={spacing.section}>
-                {resume.projects.map((project, i) => (
-                  <div key={i} className={spacing.section}>
-                    <h3 className={typography.title_s}>{project.name}</h3>
-                    <span className={typography.meta}>{project.time}</span>
-                    <p className="mt-1"> - {project.description}</p>
-                  </div>
+              <div className={cx('gap-y-1 grid grid-cols-2', spacing.section)}>
+                {resume.skills.map((skill, i) => (
+                  <div key={i}>- {skill}</div>
                 ))}
               </div>
             </div>
 
             <div className={spacing.section}>
               <h4 className={typography.title_m}>Competitions</h4>
-              <div className={spacing.section}>
+              <div className={cx(spacing.section, 'grid grid-cols-2 gap-1')}>
                 {resume.competitions.map((competition, i) => (
-                  <div key={i} className={spacing.section}>
+                  <div key={i}>
                     <h3 className={typography.title_s}>{competition.name}</h3>
                     <span className={typography.meta}>{competition.time}</span>
                     {competition.description ? (
@@ -154,6 +113,29 @@ export default function Resume() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          <div className="w-1/12" />
+
+          <div className="w-6/12">
+            <div className={spacing.section}>
+              <h4 className={typography.title_m}>Work Experience</h4>
+              {resume.workExperience.map((work, i) => (
+                <div key={i} className={spacing.section}>
+                  <h3 className={typography.title_s}>{work.position}</h3>
+                  <h4>{work.company}</h4>
+                  <div className={cx('flex justify-between', typography.meta)}>
+                    <span>{work.time}</span>
+                    <span>{work.location}</span>
+                  </div>
+                  <ul className="mt-1">
+                    {work.achievements.map((achievement, i) => (
+                      <li key={i}> - {achievement.content}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>

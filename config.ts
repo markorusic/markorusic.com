@@ -31,19 +31,16 @@ export const resume = {
   title: 'Software Engineer',
   bio: [
     "For the past 7 years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.",
-    'During my career, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of reporting to my manager, setting proper time estimates on tasks, and communicating between the team and the product owners.',
+    'During my career, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of setting proper time estimates on tasks, and communicating between the team and the product owners.',
     'I’m resourceful and curious. I know where and how to find answers to my questions in order to provide high-quality work. I enjoy working in a team of hardworking and ambitious individuals.'
   ],
-  skils: [
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'React Native',
-    'Next.js',
-    'Remix',
-    'REST',
-    'MySQL',
-    'Redis'
+  skills: [
+    'TypeScript, React, React Native',
+    'Frontend Architecture',
+    'Problem Solving',
+    'Agile Methodologies',
+    'Technical Leadership',
+    'Team Leadership'
   ],
   links: [
     {
@@ -76,22 +73,22 @@ export const resume = {
   ],
   workExperience: [
     {
-      position: 'Frontend Engineer',
+      position: 'Frontend Engineer & Engineering Lead',
       company: 'Povio',
       location: 'Remote',
       time: '04/2022 – Present',
       achievements: [
         {
-          content: `Developed features using TypeScript and React with high quality`
+          content: `Led React and TypeScript-based frontend development at a Y Combinator-affiliated outsourcing leader. Delivered UX excellence across diverse projects.`
         },
         {
-          content: `Improved the efficiency and quality of the team's work by implementing new development processes`
+          content: `Directed engineering initiatives as Lead, setting coding standards, overseeing code reviews, and fostering team growth.`
         },
         {
-          content: `Collaborated with stakeholders to refine requirements and ensure successful implementation of features`
+          content: `Engineered captivating user interfaces, leveraging React and TypeScript expertise to enhance engagement and meet client requirements.`
         },
         {
-          content: `Conducted code reviews and provide constructive feedback to other developers`
+          content: `Mentored and reviewed developers, elevating team skills through knowledge-sharing and targeted feedback.`
         }
       ]
     },
@@ -103,20 +100,23 @@ export const resume = {
       achievements: [
         {
           content:
-            'Architected and developed large scale back-office portal for managing video streaming platform. Tech stack: React, TypeScript'
+            'Led the architecture and development of a robust back-office portal to manage a video streaming platform, employing React and TypeScript.'
         },
         {
           content:
-            'Architected and developed end user video streaming cross platform application. Tech stack: React, React Native, TypeScript'
+            'Led the architecture and development of a cross-platform video streaming application for end users, utilizing React, React Native, and TypeScript.'
         },
         {
-          content: 'Mentored and reviewed team members'
+          content:
+            'Mentored and conducted comprehensive reviews for team members, fostering skill growth and ensuring high code quality.'
         },
         {
-          content: 'Managed communication with product owners'
+          content:
+            'Effectively managed communication with product owners, translating their requirements into actionable development tasks.'
         },
         {
-          content: 'Ensured that software met product and design requirements'
+          content:
+            'Ensured meticulous alignment of software with product and design specifications, maintaining a strong focus on quality and user experience.'
         }
       ]
     },
@@ -128,16 +128,16 @@ export const resume = {
       achievements: [
         {
           content:
-            'Architected and developed photo voting platform Slike Srbije. Tech stack: MySQL, Laravel, REST, Vue.js',
+            'Engineered the creation of the photo voting platform "Slike Srbije," utilizing technologies such as MySQL, Laravel, REST, and Vue.js.',
           url: 'https://www.slikesrbije.rs/'
         },
         {
           content:
-            'Architected and developed TV content management service. Implemented complex electronic program guide (EPG) views and editors. Tech stack: MongoDB, Spring Boot, REST, Vue.js'
+            'Led the architecture and development of a TV content management service, incorporating intricate electronic program guide (EPG) views and editors. Employed MongoDB, Spring Boot, REST, and Vue.js.'
         },
         {
           content:
-            'Architected and developed end user TV content portal. Tech stack: Vue.js',
+            'Designed and implemented an engaging end-user TV content portal utilizing Vue.js, optimizing the user experience and interaction.',
           url: 'http://volim.tv/'
         }
       ]
@@ -157,22 +157,6 @@ export const resume = {
       location: 'Belgrade, Serbia'
     }
   ],
-  projects: [
-    {
-      name: 'Dermaceutical',
-      time: '05/2018 – 06/2018',
-      url: 'https://dermaceutical.rs/',
-      description:
-        'E-commerce website with full featured back-office content management portal. Tech stack: Laravel, jQuery'
-    },
-    {
-      name: 'Belgrade Now Party',
-      time: '03/2018 – 04/2018',
-      url: 'https://belgradenow.party/',
-      description:
-        'Night life promotion website with full featured back-office content management portal. Tech stack: Laravel, jQuery'
-    }
-  ],
   competitions: [
     {
       name: 'Saga ML Hackathon',
@@ -180,7 +164,7 @@ export const resume = {
       description: ''
     },
     {
-      name: 'Fon Case Study Hackaton',
+      name: 'FON Case Study Hackaton',
       time: '06/2018',
       description: ''
     },
