@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
-    "postbuild": "NODE_OPTIONS='--experimental-json-modules' node -r dotenv/config ./scripts/generate-rss.mjs && node -r dotenv/config ./scripts/generate-sitemap.mjs",
+    "postbuild": "NODE_OPTIONS='--experimental-json-modules' && node -r dotenv/config ./scripts/generate-sitemap.mjs",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
