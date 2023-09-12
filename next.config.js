@@ -6,9 +6,6 @@ const { withContentlayer } = require('next-contentlayer');
 const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
-  // typescript: {
-  //   ignoreBuildErrors: true
-  // },
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {
