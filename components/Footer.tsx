@@ -27,9 +27,9 @@ export default function Footer() {
               About
             </a>
           </Link>
-          <Link href="/newsletter">
+          <Link href="/resume">
             <a className="text-gray-500 hover:text-gray-600 transition">
-              Newsletter
+              Resume
             </a>
           </Link>
         </div>
@@ -51,11 +51,6 @@ export default function Footer() {
           <Link href="/snippets">
             <a className="text-gray-500 hover:text-gray-600 transition">
               Snippets
-            </a>
-          </Link>
-          <Link href="/resume">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Resume
             </a>
           </Link>
         </div>
