@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
-import cn from 'classnames';
+import { clsx } from 'clsx';
 
 import Footer from '@/components/Footer';
 import MobileMenu from '@/components/MobileMenu';
@@ -16,7 +16,7 @@ function NavItem({ href, text }) {
   return (
     <NextLink href={href}>
       <a
-        className={cn(
+        className={clsx(
           isActive
             ? 'font-semibold text-gray-800 dark:text-gray-200'
             : 'font-normal text-gray-600 dark:text-gray-400',

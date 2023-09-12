@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import cx from 'classnames';
+import { clsx } from 'clsx';
 import { resume } from '@/config';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -37,7 +37,7 @@ export default function Resume() {
                 {links.map((link) => {
                   const content = (
                     <div className="flex items-center">
-                      <i className={cx(`fa fa-${link.icon}`, 'mr-2')} />
+                      <i className={clsx(`fa fa-${link.icon}`, 'mr-2')} />
                       <span>{link.text}</span>
                     </div>
                   );
@@ -93,7 +93,9 @@ export default function Resume() {
 
             <div className={spacing.section}>
               <h4 className={typography.title_m}>Skills</h4>
-              <div className={cx('gap-y-1 grid grid-cols-2', spacing.section)}>
+              <div
+                className={clsx('gap-y-1 grid grid-cols-2', spacing.section)}
+              >
                 {resume.skills.map((skill, i) => (
                   <div key={i}>- {skill}</div>
                 ))}
@@ -102,7 +104,7 @@ export default function Resume() {
 
             <div className={spacing.section}>
               <h4 className={typography.title_m}>Competitions</h4>
-              <div className={cx(spacing.section, 'grid grid-cols-2 gap-1')}>
+              <div className={clsx(spacing.section, 'grid grid-cols-2 gap-1')}>
                 {resume.competitions.map((competition, i) => (
                   <div key={i}>
                     <h3 className={typography.title_s}>{competition.name}</h3>
@@ -125,7 +127,9 @@ export default function Resume() {
                 <div key={i} className={spacing.section}>
                   <h3 className={typography.title_s}>{work.position}</h3>
                   <h4>{work.company}</h4>
-                  <div className={cx('flex justify-between', typography.meta)}>
+                  <div
+                    className={clsx('flex justify-between', typography.meta)}
+                  >
                     <span>{work.time}</span>
                     <span>{work.location}</span>
                   </div>
