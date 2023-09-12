@@ -1,4 +1,4 @@
-import { owner } from 'config';
+import { owner } from '@/config';
 
 export default function SayHello() {
   return (

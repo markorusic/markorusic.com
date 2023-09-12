@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
-import Container from 'components/Container';
-import SayHello from 'components/SayHello';
-import ViewCounter from 'components/ViewCounter';
+import Container from '@/components/Container';
+import SayHello from '@/components/SayHello';
+import ViewCounter from '@/components/ViewCounter';
 import type { PropsWithChildren } from 'react';
 import type { Blog } from '.contentlayer/types';
-import { owner } from 'config';
+import { owner } from '@/config';
 
 export default function BlogLayout({
   children,
@@ -54,15 +54,6 @@ export default function BlogLayout({
         <div className="mt-8 w-full">
           <SayHello />
         </div>
-        {/* <div className="text-sm text-gray-700 dark:text-gray-300">
-          <a
-            href={discussUrl(post.slug)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {'Discuss on Twitter'}
-          </a>
-        </div> */}
       </article>
     </Container>
   );

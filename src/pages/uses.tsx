@@ -1,6 +1,6 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import components from 'components/MDXComponents';
-import UsesLayout from 'layouts/uses';
+import components from '@/components/MDXComponents';
+import UsesLayout from '@/layouts/uses';
 import { allOtherPages } from '.contentlayer/data';
 import type { OtherPage } from '.contentlayer/types';
 

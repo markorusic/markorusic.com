@@ -1,5 +1,5 @@
-import Container from 'components/Container';
-import { owner } from 'config';
+import Container from '@/components/Container';
+import { owner } from '@/config';
 
 export default function UsesLayout({ children }) {
   return (

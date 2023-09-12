@@ -1,8 +1,8 @@
 import { allSnippets } from '.contentlayer/data';
-import Container from 'components/Container';
-import FunctionCard from 'components/FunctionCard';
-import { owner } from 'config';
-import { pick } from 'lib/utils';
+import Container from '@/components/Container';
+import FunctionCard from '@/components/FunctionCard';
+import { owner } from '@/config';
+import { pick } from '@/lib/utils';
 import type { InferGetStaticPropsType } from 'next';
 import { useState } from 'react';
 

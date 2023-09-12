@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import cx from 'classnames';
-import { resume } from 'config';
+import { resume } from '@/config';
 import 'font-awesome/css/font-awesome.min.css';
 
 const groupedLinks = ((linksPerGroup = 2) =>

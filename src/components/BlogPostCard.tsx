@@ -2,8 +2,8 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import cn from 'classnames';
 
-import fetcher from 'lib/fetcher';
-import { Views } from 'lib/types';
+import fetcher from '@/lib/fetcher';
+import { Views } from '@/lib/types';
 
 export default function BlogPostCard({ title, slug, gradient }) {
   const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);

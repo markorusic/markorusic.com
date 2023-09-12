@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Container from 'components/Container';
-import { owner } from 'config';
+import Container from '@/components/Container';
+import { owner } from '@/config';
 
 export default function NotFound() {
   return (

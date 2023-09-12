@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { featuredBlogPosts, owner } from 'config';
-import Container from '../components/Container';
-import BlogPostCard from '../components/BlogPostCard';
-import SayHello from '../components/SayHello';
+import { featuredBlogPosts, owner } from '@/config';
+import Container from '@/components/Container';
+import BlogPostCard from '@/components/BlogPostCard';
+import SayHello from '@/components/SayHello';
 
 const featuredPostGradients = [
   'from-[#8A2387] via-[#E94057] to-[#F27121]',

@@ -1,5 +1,5 @@
-import { getCacheKey } from 'lib/cache-factory';
-import { cacheClient } from 'lib/redis-cache';
+import { getCacheKey } from '@/lib/cache-factory';
+import { cacheClient } from '@/lib/redis-cache';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(

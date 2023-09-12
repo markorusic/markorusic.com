@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { owner } from 'config';
+import { owner } from '@/config';
 
 const ExternalLink = ({ href, children }) => (
   <a

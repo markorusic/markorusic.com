@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import Timeline from 'components/Timeline';
-import Container from 'components/Container';
-import { owner } from 'config';
+import Timeline from '@/components/Timeline';
+import Container from '@/components/Container';
+import { owner } from '@/config';
 import { intervalToDuration } from 'date-fns';
 
 export default function About() {

@@ -1,6 +1,6 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import components from 'components/MDXComponents';
-import BlogLayout from 'layouts/blog';
+import components from '@/components/MDXComponents';
+import BlogLayout from '@/layouts/blog';
 import { allBlogs } from '.contentlayer/data';
 import type { Blog } from '.contentlayer/types';
 
