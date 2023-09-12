@@ -3,7 +3,6 @@ import {
   defineDocumentType,
   makeSource
 } from 'contentlayer/source-files';
-
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -26,7 +25,7 @@ const computedFields: ComputedFields = {
 const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'blog/*.mdx',
-  bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     publishedAt: { type: 'string', required: true },
@@ -39,7 +38,7 @@ const Blog = defineDocumentType(() => ({
 const Snippet = defineDocumentType(() => ({
   name: 'Snippet',
   filePathPattern: 'snippets/*.mdx',
-  bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
@@ -51,7 +50,7 @@ const Snippet = defineDocumentType(() => ({
 const OtherPage = defineDocumentType(() => ({
   name: 'OtherPage',
   filePathPattern: '*.mdx',
-  bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true }
   },

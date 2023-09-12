@@ -5,7 +5,7 @@ import Container from '@/components/Container';
 import SayHello from '@/components/SayHello';
 import ViewCounter from '@/components/ViewCounter';
 import type { PropsWithChildren } from 'react';
-import type { Blog } from '.contentlayer/types';
+import { Blog } from 'contentlayer/generated';
 import { owner } from '@/config';
 
 export default function BlogLayout({

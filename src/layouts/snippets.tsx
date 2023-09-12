@@ -1,8 +1,7 @@
 import Image from 'next/image';
-
 import Container from '@/components/Container';
 import type { PropsWithChildren } from 'react';
-import type { Snippet } from '.contentlayer/types';
+import { Snippet } from 'contentlayer/generated';
 
 export default function SnippetLayout({
   children,

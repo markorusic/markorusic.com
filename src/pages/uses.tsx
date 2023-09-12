@@ -1,8 +1,7 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import components from '@/components/MDXComponents';
 import UsesLayout from '@/layouts/uses';
-import { allOtherPages } from '.contentlayer/data';
-import type { OtherPage } from '.contentlayer/types';
+import { allOtherPages, OtherPage } from 'contentlayer/generated';
 
 export default function Uses({ body: { code } }: OtherPage) {
   const Component = useMDXComponent(code);
