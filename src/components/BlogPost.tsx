@@ -1,8 +1,5 @@
 import Link from 'next/link';
-import useSWR from 'swr';
-
-import fetcher from '@/lib/fetcher';
-import { Views } from '@/lib/types';
+import { useBlogViews } from '@/lib/fetcher';
 import { Blog } from 'contentlayer/generated';
 
 export default function BlogPost({
@@ -10,9 +7,7 @@ export default function BlogPost({
   summary,
   slug
 }: Pick<Blog, 'title' | 'summary' | 'slug'>) {
-  const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);
-  const views = data?.total;
-
+  const views = useBlogViews(slug);
   return (
     <Link href={`/blog/${slug}`}>
       <a className="w-full">
@@ -22,7 +17,7 @@ export default function BlogPost({
               {title}
             </h4>
             <p className="w-32 mb-4 text-left text-gray-500 md:text-right md:mb-0">
-              {`${views ? new Number(views).toLocaleString() : '–––'} views`}
+              {`${views ? views.toLocaleString() : '–––'} views`}
             </p>
           </div>
           <p className="text-gray-600 dark:text-gray-400">{summary}</p>
