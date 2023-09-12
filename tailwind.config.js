@@ -1,8 +1,8 @@
 const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     './src/pages/**/*.tsx',
     './src/components/**/*.tsx',
     './src/layouts/**/*.tsx'
