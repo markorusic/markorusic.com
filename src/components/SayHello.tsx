@@ -9,7 +9,7 @@ export default function SayHello() {
       <p className="my-1 text-gray-800 dark:text-gray-200">
         Feel free to reach out at{' '}
         <a
-          className="text-gray-50 font-medium underline"
+          className="text-gray-800 dark:text-gray-50 font-medium underline"
           href={`mailto:${owner.email}`}
         >
           {owner.email}
