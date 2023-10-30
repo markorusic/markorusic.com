@@ -74,18 +74,15 @@ export const resume = {
   workExperience: [
     {
       position: 'Frontend Engineer & Engineering Lead',
-      company: 'Povio',
+      company: 'Povio (YC W14)',
       location: 'Remote',
       time: '04/2022 – Present',
       achievements: [
         {
-          content: `Led React and TypeScript-based frontend development at a Y Combinator-affiliated outsourcing leader. Delivered UX excellence across diverse projects.`
-        },
-        {
           content: `Directed engineering initiatives as Lead, setting coding standards, overseeing code reviews, and fostering team growth.`
         },
         {
-          content: `Engineered captivating user interfaces, leveraging React and TypeScript expertise to enhance engagement and meet client requirements.`
+          content: `Built captivating user interfaces, leveraging TypeScript/React ecosystem expertise to enhance engagement and meet client requirements.`
         },
         {
           content: `Mentored and reviewed developers, elevating team skills through knowledge-sharing and targeted feedback.`
