@@ -36,7 +36,7 @@ export default function Container(props) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  const { children, ...customMeta } = props;
+  const { children, className, ...customMeta } = props;
   const router = useRouter();
   const meta = {
     title: `${owner.name} – Developer, JavaScript enthusiast, writer.`,
@@ -124,7 +124,10 @@ export default function Container(props) {
       </div>
       <main
         id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
+        className={clsx(
+          'flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900',
+          className
+        )}
       >
         {children}
         <Footer />
