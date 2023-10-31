@@ -11,14 +11,8 @@ import {
   ParagraphBlockObjectResponse,
   RichTextItemResponse
 } from '@notionhq/client/build/src/api-endpoints';
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import typescript from 'highlight.js/lib/languages/typescript';
-
-import 'highlight.js/styles/github.min.css';
-
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('typescript', typescript);
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { nightOwl as syntaxHighlighterStyle } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 type BlockComponent<T extends BlockObjectResponse = BlockObjectResponse> = FC<{
   block: T;
@@ -95,13 +89,13 @@ const Image: BlockComponent<ImageBlockObjectResponse> = ({ block }) => {
 };
 const Code: BlockComponent<CodeBlockObjectResponse> = ({ block }) => {
   return (
-    <pre
-      dangerouslySetInnerHTML={{
-        __html: hljs.highlight(richText(block.code.rich_text), {
-          language: block.code.language
-        }).value
-      }}
-    />
+    <SyntaxHighlighter
+      language={block.code.language}
+      style={syntaxHighlighterStyle}
+      wrapLongLines
+    >
+      {richText(block.code.rich_text)}
+    </SyntaxHighlighter>
   );
 };
 
@@ -165,5 +159,6 @@ const getTextStyle = (annotation: RichTextItemResponse['annotations']) =>
     italic: annotation.italic,
     underline: annotation.underline,
     'line-through': annotation.strikethrough,
-    'bg-gray-200 text-red-400 px-1 py-0.5 rounded': annotation.code
+    'bg-gray-200 text-black dark:text-white dark:bg-gray-600 font-medium px-1 py-0.5 rounded':
+      annotation.code
   });
