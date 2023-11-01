@@ -1,34 +1,14 @@
+import { FC } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import * as notion from '@notionhq/client';
-import {
-  BlockObjectResponse,
-  DatabaseObjectResponse,
-  PageObjectResponse
-} from '@notionhq/client/build/src/api-endpoints';
+import { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { NotionView } from '@/components/NotionView';
 import Container from '@/components/Container';
 import SayHello from '@/components/SayHello';
-
-// import dynamic from 'next/dynamic';
-// const ReactJson = dynamic(import('react-json-view'), { ssr: false });
-
-const client = new notion.Client({ auth: process.env.NOTION_TOKEN });
+import { Post, getBlocks, getPosts } from '@/lib/notion';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const db = await client.databases.query({
-    database_id: process.env.NOTION_BLOG_DATABASE_ID,
-    filter: {
-      property: 'Status',
-      status: {
-        equals: 'Published'
-      }
-    }
-  });
-  const paths = db.results.map((p: DatabaseObjectResponse) => {
-    // @ts-ignore
-    const slug = p.properties.Slug?.rich_text[0]?.plain_text;
-    return { params: { slug } };
-  });
+  const posts = await getPosts();
+  const paths = posts.map((post) => ({ params: { slug: post.slug } }));
   return {
     paths,
     fallback: 'blocking'
@@ -36,29 +16,39 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postId = await client.databases
-    .query({
-      database_id: process.env.NOTION_BLOG_DATABASE_ID,
-      filter: {
-        property: 'Slug',
-        rich_text: {
-          equals: params.slug as string
-        }
-      }
-    })
-    .then((data) => (data.results[0] as PageObjectResponse | undefined).id);
+  const posts = await getPosts();
+  const post = posts.find((post) => post.slug === params.slug);
 
-  const blocks = await client.blocks.children
-    .list({ block_id: postId })
-    .then((res) => res.results as BlockObjectResponse[]);
+  if (!post) {
+    return { notFound: true };
+  }
 
-  return { props: { blocks }, revalidate: 5 * 60 };
+  const blocks = await getBlocks(post.id);
+
+  return { props: { post, blocks }, revalidate: 5 * 60 };
 };
 
-export default function Notion({ blocks }) {
+type BlogV2Props = {
+  post: Post;
+  blocks: BlockObjectResponse[];
+};
+
+const BlogV2: FC<BlogV2Props> = ({ post, blocks }) => {
   return (
     <Container>
-      <div className="flex gap-8 flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+      <div className="flex gap-4 flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+        <div className="flex flex-col gap-4 w-full">
+          <h1 className="text-black dark:text-white font-bold text-4xl">
+            {post.title}
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            {post.description}
+          </p>
+          <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+            <span>Marko Rusić / August 19, 2019</span>
+            <span>7 min read • 262 views</span>
+          </div>
+        </div>
         <NotionView blocks={blocks} />
         <div className="w-full">
           <SayHello />
@@ -66,4 +56,6 @@ export default function Notion({ blocks }) {
       </div>
     </Container>
   );
-}
+};
+
+export default BlogV2;

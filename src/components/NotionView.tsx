@@ -44,7 +44,7 @@ type NotionViewProps = {
 
 export const NotionView: FC<NotionViewProps> = ({ blocks = [] }) => {
   return (
-    <article className="prose dark:prose-invert">
+    <article className="prose dark:prose-invert w-full">
       {blocks.map((block) => {
         const component = blockComponentMap[block.type];
         const element = component ? createElement(component, { block }) : null;
@@ -210,7 +210,7 @@ type CopyButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 type CopyState = 'idle' | 'success' | 'error';
 
 const CopyButton: FC<CopyButtonProps> = ({ text, ...props }) => {
-  const [state, setState] = useState<CopyState>('error');
+  const [state, setState] = useState<CopyState>('idle');
 
   useEffect(() => {
     if (state !== 'idle') {
