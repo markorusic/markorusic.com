@@ -148,7 +148,34 @@ table {
 .prose img {
   @apply rounded;
 }
-
 .prose pre {
   @apply p-8;
+}
+.prose h1 {
+  @apply text-3xl md:text-5xl;
+}
+.prose h3 {
+  @apply text-2xl;
+}
+
+.prose .anchor {
+  @apply absolute invisible;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+.anchor:hover {
+  @apply visible no-underline;
+}
+.prose a {
+  @apply transition-all;
+}
+.prose .anchor:after {
+  @apply text-gray-300 dark:text-gray-700;
+  content: '#';
+}
+.prose *:hover > .anchor {
+  @apply visible no-underline;
 }
