@@ -1,7 +1,11 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useBlogViews } from '@/lib/fetcher';
 
-export default function ViewCounter({ slug }) {
+type ViewCounterProps = {
+  slug: string;
+};
+
+export const ViewCounter: FC<ViewCounterProps> = ({ slug }) => {
   const views = useBlogViews(slug);
 
   useEffect(() => {
@@ -10,4 +14,4 @@ export default function ViewCounter({ slug }) {
   }, [slug]);
 
   return <span>{`${views > 0 ? views.toLocaleString() : '–––'} views`}</span>;
-}
+};

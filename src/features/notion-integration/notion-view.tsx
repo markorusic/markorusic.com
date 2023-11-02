@@ -26,6 +26,7 @@ import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl as syntaxHighlighterStyle } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import js from 'react-syntax-highlighter/dist/cjs/languages/hljs/javascript';
 import ts from 'react-syntax-highlighter/dist/cjs/languages/hljs/typescript';
+import { richText } from './notion-utils';
 
 SyntaxHighlighter.registerLanguage('js', js);
 SyntaxHighlighter.registerLanguage('ts', ts);
@@ -149,9 +150,6 @@ const blockComponentMap: BlockComponentMap = {
   quote: Quote,
   callout: Callout
 };
-
-const richText = (text: RichTextItemResponse[]) =>
-  text.map((t) => t.plain_text).join('');
 
 const RichText: FC<{ text: RichTextItemResponse[] }> = ({ text }) => {
   return (

@@ -1,13 +1,21 @@
+import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function FunctionCard({
+type FunctionCardProps = React.HTMLAttributes<HTMLAnchorElement> & {
+  title: string;
+  description: string;
+  slug: string;
+  logo: string;
+};
+
+export const FunctionCard: FC<FunctionCardProps> = ({
   title,
   description,
   slug,
   logo,
   ...rest
-}) {
+}) => {
   return (
     <Link href={`/snippets/${slug}`}>
       <a
@@ -28,4 +36,4 @@ export default function FunctionCard({
       </a>
     </Link>
   );
-}
+};

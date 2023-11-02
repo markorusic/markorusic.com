@@ -52,7 +52,7 @@ const StyledLink: FC<{ href: string }> = (props) => {
   );
 };
 
-export default function Timeline() {
+export function Timeline() {
   return (
     <>
       <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">

@@ -1,26 +1,29 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import components from '@/components/MDXComponents';
-import BlogLayout from '@/layouts/blog';
-import { allBlogs, Blog } from 'contentlayer/generated';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { BLOG_DATA_TTL } from '@/config';
+import { BlogView } from '@/features/blog/components/blog-view';
+import { getPosts } from '@/features/blog/blog-service';
+import { getBlocks } from '@/features/notion-integration/notion-service';
 
-export default function Post({ post }: { post: Blog }) {
-  const Component = useMDXComponent(post.body.code);
-
-  return (
-    <BlogLayout post={post}>
-      <Component components={components as any} />
-    </BlogLayout>
-  );
-}
-
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getPosts();
+  const paths = posts.map((post) => ({ params: { slug: post.slug } }));
   return {
-    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false
+    paths,
+    fallback: 'blocking'
   };
-}
+};
 
-export async function getStaticProps({ params }) {
-  const post = allBlogs.find((post) => post.slug === params.slug);
-  return { props: { post } };
-}
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const posts = await getPosts();
+  const post = posts.find((post) => post.slug === params.slug);
+
+  if (!post) {
+    return { notFound: true };
+  }
+
+  const blocks = await getBlocks(post.id);
+
+  return { props: { post, blocks }, revalidate: BLOG_DATA_TTL };
+};
+
+export default BlogView;

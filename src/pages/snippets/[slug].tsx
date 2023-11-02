@@ -1,27 +1,18 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import components from '@/components/MDXComponents';
-import SnippetLayout from '@/layouts/snippets';
-import { allSnippets, Snippet } from 'contentlayer/generated';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { SnippetView } from '@/features/snippets/snippet-view';
+import { allSnippets } from 'contentlayer/generated';
+import { getSnippet } from '@/features/snippets/snippet-service';
 
-export default function SnippetPage(snippet: Snippet) {
-  const Component = useMDXComponent(snippet.body.code);
-
-  return (
-    <SnippetLayout snippet={snippet}>
-      <Component components={components as any} />
-    </SnippetLayout>
-  );
-}
-
-export function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: allSnippets.map((s) => ({ params: { slug: s.slug } })),
     fallback: false
   };
-}
+};
 
-export function getStaticProps({ params }) {
-  const snippet = allSnippets.find((snippet) => snippet.slug === params.slug);
+export const getStaticProps: GetStaticProps = ({ params }) => {
+  const snippet = getSnippet(params.slug as string);
+  return { props: { snippet } };
+};
 
-  return { props: snippet };
-}
+export default SnippetView;

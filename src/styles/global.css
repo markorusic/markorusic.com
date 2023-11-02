@@ -145,6 +145,9 @@ table {
   white-space: nowrap;
 }
 
+.prose {
+  @apply max-w-none;
+}
 .prose img {
   @apply rounded;
 }
@@ -157,7 +160,6 @@ table {
 .prose h3 {
   @apply text-2xl;
 }
-
 .prose .anchor {
   @apply absolute invisible;
   margin-left: -1em;

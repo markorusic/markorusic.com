@@ -1,12 +1,17 @@
+import type { FC, ReactNode } from 'react';
 import Image from 'next/image';
-import Container from '@/components/Container';
-import type { PropsWithChildren } from 'react';
 import { Snippet } from 'contentlayer/generated';
+import Container from '@/components/container';
 
-export default function SnippetLayout({
+type SnippetLayoutProps = {
+  snippet: Snippet;
+  children: ReactNode;
+};
+
+export const SnippetLayout: FC<SnippetLayoutProps> = ({
   children,
   snippet
-}: PropsWithChildren<{ snippet: Snippet }>) {
+}) => {
   return (
     <Container
       title={`${snippet.title} - Code Snippet`}
@@ -36,4 +41,4 @@ export default function SnippetLayout({
       </article>
     </Container>
   );
-}
+};

@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import { owner } from '@/config';
 
-export default function SayHello() {
+export const SayHello: FC = () => {
   return (
     <div className="border border-blue-200 rounded p-6 my-4 w-full dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque">
       <p className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100">
@@ -17,4 +18,4 @@ export default function SayHello() {
       </p>
     </div>
   );
-}
+};

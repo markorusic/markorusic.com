@@ -3,30 +3,23 @@ import {
   BlockObjectResponse,
   DatabaseObjectResponse
 } from '@notionhq/client/build/src/api-endpoints';
+import { richText } from './notion-utils';
 
-const client = new notion.Client({ auth: process.env.NOTION_TOKEN });
+export const notionClient = new notion.Client({
+  auth: process.env.NOTION_TOKEN
+});
 
-export type Post = {
-  id: string;
-  title: string;
-  description: string;
-  slug: string;
-  status: string;
-  publishDate: string;
+export const getWordCount = (blocks: BlockObjectResponse) => {
+  return 10;
 };
 
-export const getPosts = () =>
-  getDatabase<Post>(process.env.NOTION_BLOG_DATABASE_ID).then((posts) =>
-    posts.filter((post) => post.status === 'Published')
-  );
-
 export const getBlocks = (id: string) =>
-  client.blocks.children
+  notionClient.blocks.children
     .list({ block_id: id })
     .then((res) => res.results as BlockObjectResponse[]);
 
-const getDatabase = async <T>(id: string): Promise<T[]> => {
-  const db = await client.databases.query({ database_id: id });
+export const getDatabase = async <T>(id: string): Promise<T[]> => {
+  const db = await notionClient.databases.query({ database_id: id });
   const formattedResults = db.results.map((result: DatabaseObjectResponse) => {
     const formattedResult: Record<string, string | null> = { id: result.id };
     for (const key in result.properties) {
@@ -34,11 +27,11 @@ const getDatabase = async <T>(id: string): Promise<T[]> => {
       let value = null;
       if (property.type === 'rich_text') {
         // @ts-ignore
-        value = property.rich_text?.map((item) => item.plain_text)?.join('');
+        value = richText(property.rich_text);
       }
       if (property.type === 'title') {
         // @ts-ignore
-        value = property.title?.map((item) => item.plain_text)?.join('');
+        value = richText(property.title);
       }
       if (property.type === 'status') {
         // @ts-ignore
