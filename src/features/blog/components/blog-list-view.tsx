@@ -15,7 +15,7 @@ export const BlogListView: FC<BlogListViewProps> = ({ posts }) => {
     .slice()
     .sort(
       (a, b) =>
-        Number(new Date(b.publishDate)) - Number(new Date(a.publishDate))
+        Number(new Date(b.publish_date)) - Number(new Date(a.publish_date))
     )
     .filter((post) =>
       post.title.toLowerCase().includes(searchValue.toLowerCase())

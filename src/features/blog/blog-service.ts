@@ -7,7 +7,7 @@ export type Post = {
   description: string;
   slug: string;
   status: 'Published' | 'Draft' | 'Todo';
-  publishDate: string;
+  publish_date: string;
 };
 
 export const getPosts = () =>

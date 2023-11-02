@@ -10,6 +10,7 @@ export const notionClient = new notion.Client({
 });
 
 export const getWordCount = (blocks: BlockObjectResponse) => {
+  // TODO
   return 10;
 };
 
