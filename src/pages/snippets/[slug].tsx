@@ -1,11 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { SnippetView } from '@/features/snippets/snippet-view';
-import { allSnippets } from 'contentlayer/generated';
-import { getSnippet } from '@/features/snippets/snippet-service';
+import { getSnippet, getSnippets } from '@/features/snippets/snippet-service';
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {
-    paths: allSnippets.map((s) => ({ params: { slug: s.slug } })),
+    paths: getSnippets().map((s) => ({ params: { slug: s.slug } })),
     fallback: false
   };
 };

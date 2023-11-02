@@ -4,7 +4,9 @@ import components from '@/components/mdx-components';
 import { Snippet } from 'contentlayer/generated';
 import { SnippetLayout } from './snippet-layout';
 
-export const SnippetView: FC<{ snippet: Snippet }> = ({ snippet }) => {
+type SnippetViewProps = { snippet: Snippet };
+
+export const SnippetView: FC<SnippetViewProps> = ({ snippet }) => {
   const Component = useMDXComponent(snippet.body.code);
   return (
     <SnippetLayout snippet={snippet}>
