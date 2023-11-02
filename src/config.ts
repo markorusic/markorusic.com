@@ -6,7 +6,7 @@ export const owner = {
   linkedin: 'markorusic'
 };
 
-export const BLOG_DATA_TTL = 5 * 60;
+export const BLOG_DATA_TTL_SECONDS = 10 * 60;
 
 export const featuredBlogPosts = [
   {

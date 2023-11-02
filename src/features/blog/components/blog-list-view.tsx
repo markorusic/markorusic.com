@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import Container from '@/components/container';
+import { Container } from '@/components/container';
 import { featuredBlogPosts, owner } from '@/config';
 import Link from 'next/link';
 import { useBlogViews } from '@/lib/fetcher';

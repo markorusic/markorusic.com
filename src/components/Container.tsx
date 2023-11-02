@@ -28,7 +28,7 @@ function NavItem({ href, text }) {
   );
 }
 
-export default function Container(props) {
+export function Container(props) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 

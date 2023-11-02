@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { intervalToDuration } from 'date-fns';
-import Container from '@/components/container';
+import { Container } from '@/components/container';
 import { owner } from '@/config';
 import { Timeline } from './timeline';
 
@@ -32,10 +32,7 @@ export const AboutView: FC = () => {
           </p>
           <p>
             I write about tech, coding, stuff I find useful and interesting. So
-            feel free to subscribe to{' '}
-            <Link href="/newsletter">
-              <a>my newsletter.</a>
-            </Link>
+            feel free to say and check it out.
           </p>
         </div>
         <Timeline />

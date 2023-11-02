@@ -1,5 +1,8 @@
 import useSWR from 'swr';
-import { Views } from './types';
+
+export type Views = {
+  total: number;
+};
 
 export default async function fetcher<JSON = any>(
   input: RequestInfo,

@@ -12,6 +12,7 @@ export interface CacheOptions<T> {
   key: CacheKey;
   fetchFn: () => Promise<T>;
   maxAge?: number;
+  enabled?: boolean;
 }
 
 function assertCacheValue<T>(
@@ -44,7 +45,11 @@ export const createCache = (client: CacheClient) => {
   const keysRefreshing = new Set<string>();
 
   return {
-    get: async <T>({ maxAge, ...options }: CacheOptions<T>) => {
+    get: async <T>({ maxAge, enabled = true, ...options }: CacheOptions<T>) => {
+      if (!enabled) {
+        return options.fetchFn();
+      }
+
       const key = getCacheKey(options.key);
       log(`\n--------------------CAHCE: "${key}"--------------------\n`);
 

@@ -188,7 +188,7 @@ const RichText: FC<{ text: RichTextItemResponse[] }> = ({ text }) => {
 const colorMap: Partial<
   Record<RichTextItemResponse['annotations']['color'], string>
 > = {
-  gray: 'text-gray-600 dark:text-gray-300'
+  gray: 'text-gray-600 dark:text-gray-400'
 };
 
 const getTextStyle = (annotation: RichTextItemResponse['annotations']) =>

@@ -1,8 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { BLOG_DATA_TTL } from '@/config';
+import { BLOG_DATA_TTL_SECONDS } from '@/config';
 import { BlogView } from '@/features/blog/components/blog-view';
-import { getPosts } from '@/features/blog/blog-service';
-import { getBlocks } from '@/features/notion-integration/notion-service';
+import { getPostDetails, getPosts } from '@/features/blog/blog-service';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPosts();
@@ -14,16 +13,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const posts = await getPosts();
-  const post = posts.find((post) => post.slug === params.slug);
+  const data = await getPostDetails(params.slug as string);
 
-  if (!post) {
+  if (!data) {
     return { notFound: true };
   }
 
-  const blocks = await getBlocks(post.id);
-
-  return { props: { post, blocks }, revalidate: BLOG_DATA_TTL };
+  return { props: data, revalidate: BLOG_DATA_TTL_SECONDS };
 };
 
 export default BlogView;

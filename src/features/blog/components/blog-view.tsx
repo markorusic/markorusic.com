@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints';
-import Container from '@/components/container';
+import { Container } from '@/components/container';
 import { NotionView } from '@/features/notion-integration/notion-view';
 import { Post } from '../blog-service';
 import { BlogLayout } from './blog-layout';
