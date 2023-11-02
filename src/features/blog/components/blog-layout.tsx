@@ -1,11 +1,11 @@
 import { FC, ReactNode } from 'react';
-import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
 import { owner } from '@/config';
 import { Container } from '@/components/container';
 import { Post } from '../blog-service';
 import { SayHello } from './say-hello';
 import { ViewCounter } from './view-counter';
+import dayjs from 'dayjs';
 
 type BlogLayoutProps = {
   post: Post;
@@ -13,7 +13,7 @@ type BlogLayoutProps = {
 };
 
 export const BlogLayout: FC<BlogLayoutProps> = ({ post, children }) => {
-  const publishDate = parseISO(post.publish_date);
+  const publishDate = dayjs(post.publish_date);
   return (
     <Container
       title={`${post.title} – ${owner.name}`}
@@ -41,7 +41,7 @@ export const BlogLayout: FC<BlogLayoutProps> = ({ post, children }) => {
                 className="rounded-full"
               />
               <p>
-                {owner.name} / {format(publishDate, 'MMMM dd, yyyy')}
+                {owner.name} / {publishDate.format('MMMM DD, YYYY')}
               </p>
             </div>
             <span>

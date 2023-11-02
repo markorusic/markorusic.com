@@ -1,15 +1,14 @@
 import { FC } from 'react';
-import Link from 'next/link';
-import { intervalToDuration } from 'date-fns';
+import dayjs from 'dayjs';
 import { Container } from '@/components/container';
 import { owner } from '@/config';
 import { Timeline } from './timeline';
 
 export const AboutView: FC = () => {
-  const expirience = intervalToDuration({
-    start: new Date(2016, 0, 0),
-    end: new Date()
-  });
+  const expirience = dayjs().diff(
+    dayjs().set('year', 2016).startOf('year'),
+    'year'
+  );
   return (
     <Container title={`About – ${owner.name}`}>
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
@@ -25,7 +24,7 @@ export const AboutView: FC = () => {
             time with friends and family.
           </p>
           <p>
-            For the past {expirience.years} years I've been working in software
+            For the past {expirience} years I've been working in software
             development industry. I've had an opportunity to work on many
             projects as in a wide variety of fields and technologies. I like
             React, TypeScript, Next and everything that comes with those.
