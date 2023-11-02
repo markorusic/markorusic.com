@@ -1,11 +1,11 @@
 import { FC, ReactNode } from 'react';
+import dayjs from 'dayjs';
 import Image from 'next/image';
 import { owner } from '@/config';
 import { Container } from '@/components/container';
 import { Post } from '../blog-service';
 import { SayHello } from './say-hello';
 import { ViewCounter } from './view-counter';
-import dayjs from 'dayjs';
 
 type BlogLayoutProps = {
   post: Post;

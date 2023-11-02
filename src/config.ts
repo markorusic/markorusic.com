@@ -6,7 +6,11 @@ export const owner = {
   linkedin: 'markorusic'
 };
 
-export const BLOG_DATA_TTL_SECONDS = 10 * 60;
+export const blogConfig = {
+  ISR_TTL: 10 * 60,
+  CACHE_TTL: 60 * 1000,
+  ENABLE_CACHE: !!process.env.ENABLE_BLOG_CACHE
+};
 
 export const featuredBlogPosts = [
   {

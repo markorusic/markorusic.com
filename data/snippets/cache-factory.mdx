@@ -6,7 +6,7 @@ logo: 'typescript.png'
 
 ```ts
 export type CacheKey = (string | number | boolean | undefined)[];
-export type CacheMetadata = { createdAt: number; maxAge: number | null };
+export type CacheMetadata = { createdAt: number; ttl: number | null };
 export type CacheValue<T> = { metadata: CacheMetadata; value: T };
 
 export interface CacheClient {
@@ -18,7 +18,7 @@ export interface CacheClient {
 export interface CacheOptions<T> {
   key: CacheKey;
   fetchFn: () => Promise<T>;
-  maxAge?: number;
+  ttl?: number;
 }
 
 function assertCacheValue<T>(
@@ -51,7 +51,7 @@ export const createCache = (client: CacheClient) => {
   const keysRefreshing = new Set<string>();
 
   return {
-    get: async <T>({ maxAge, ...options }: CacheOptions<T>) => {
+    get: async <T>({ ttl, ...options }: CacheOptions<T>) => {
       const key = getCacheKey(options.key);
       log(`\n--------------------CAHCE: "${key}"--------------------\n`);
 
@@ -60,7 +60,7 @@ export const createCache = (client: CacheClient) => {
         const value = await options.fetchFn();
         const cacheValue: CacheValue<T> = {
           value,
-          metadata: { maxAge: maxAge ?? null, createdAt: Date.now() }
+          metadata: { ttl: ttl ?? null, createdAt: Date.now() }
         };
         await client.set(key, cacheValue);
         log(`Fresh value "${key}" set to cache`);
@@ -75,14 +75,12 @@ export const createCache = (client: CacheClient) => {
           const { value, metadata } = cacheValue;
 
           const isExpired =
-            metadata.maxAge &&
-            Date.now() > metadata.createdAt + metadata.maxAge;
+            metadata.ttl && Date.now() > metadata.createdAt + metadata.ttl;
 
           log(
             `"${key}" parsed and validated, expiring in: ${
-              metadata.maxAge
-                ? (metadata.createdAt + metadata.maxAge - Date.now()) / 1000 +
-                  's'
+              metadata.ttl
+                ? (metadata.createdAt + metadata.ttl - Date.now()) / 1000 + 's'
                 : 'never'
             }`
           );
@@ -147,7 +145,7 @@ export const redisCacheClient = createCache({
 export const getFeaturedPosts = () =>
   redisCacheClient.get({
     key: ['featured-posts'],
-    maxAge: 1000 * 60 * 60, // 1 hour
+    ttl: 1000 * 60 * 60, // 1 hour
     fetchFn: () => prisma.post.findMany({ where: { isFeatured: true } })
   });
 ```

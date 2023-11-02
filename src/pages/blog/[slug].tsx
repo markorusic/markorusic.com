@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { BLOG_DATA_TTL_SECONDS } from '@/config';
+import { blogConfig } from '@/config';
 import { BlogView } from '@/features/blog/components/blog-view';
 import { getPostDetails, getPosts } from '@/features/blog/blog-service';
 
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
 
-  return { props: data, revalidate: BLOG_DATA_TTL_SECONDS };
+  return { props: data, revalidate: blogConfig.ISR_TTL };
 };
 
 export default BlogView;

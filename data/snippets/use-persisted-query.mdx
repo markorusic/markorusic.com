@@ -69,7 +69,7 @@ import { usePersistedQuery } from './use-persisted-query';
 
 export const useFeaturedPosts = () => {
   return usePersistedQuery({
-    maxAge: 1000 * 60,
+    ttl: 1000 * 60,
     queryKey: ['featured-posts'],
     queryFn: () => fetch('/api/featured-posts').then((r) => r.json())
   });
