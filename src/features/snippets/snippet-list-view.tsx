@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Snippet } from 'contentlayer/generated';
-import { Container } from '@/components/container';
+import { Container } from '@/shared/components/container';
 import { owner } from '@/config';
 import { FunctionCard } from './function-card';
 

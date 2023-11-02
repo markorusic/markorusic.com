@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 import Image from 'next/image';
 import { Snippet } from 'contentlayer/generated';
-import { Container } from '@/components/container';
+import { Container } from '@/shared/components/container';
 
 type SnippetLayoutProps = {
   snippet: Snippet;

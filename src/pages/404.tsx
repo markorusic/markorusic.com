@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Container } from '@/components/container';
+import { Container } from '@/shared/components/container';
 import { owner } from '@/config';
 
 export default function NotFound() {

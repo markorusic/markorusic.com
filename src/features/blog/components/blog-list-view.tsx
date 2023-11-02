@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
-import { Container } from '@/components/container';
+import { Container } from '@/shared/components/container';
 import { featuredBlogPosts, owner } from '@/config';
 import Link from 'next/link';
-import { useBlogViews } from '@/lib/fetcher';
+import { useBlogViews } from '@/shared/fetcher';
 import { Post } from '../blog-service';
 
 type BlogListViewProps = {

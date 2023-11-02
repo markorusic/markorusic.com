@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { clsx } from 'clsx';
-import { useBlogViews } from '@/lib/fetcher';
-import { Container } from '@/components/container';
+import { useBlogViews } from '@/shared/fetcher';
+import { Container } from '@/shared/components/container';
 import { owner, featuredBlogPosts } from '@/config';
 import { SayHello } from '@/features/blog/components/say-hello';
 

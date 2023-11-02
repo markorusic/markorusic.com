@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { useBlogViews } from '@/lib/fetcher';
+import { useBlogViews } from '@/shared/fetcher';
 
 type ViewCounterProps = {
   slug: string;

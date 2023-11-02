@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import dayjs from 'dayjs';
-import { Container } from '@/components/container';
+import { Container } from '@/shared/components/container';
 import { owner } from '@/config';
 import { Timeline } from './timeline';
 

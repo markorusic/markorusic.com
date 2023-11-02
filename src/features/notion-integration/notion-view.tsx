@@ -7,7 +7,7 @@ import {
   useState
 } from 'react';
 import clsx from 'clsx';
-import { copyText, slugify } from '@/lib/utils';
+import { copyText, slugify } from '@/styles/utils';
 import {
   BlockObjectResponse,
   BulletedListItemBlockObjectResponse,

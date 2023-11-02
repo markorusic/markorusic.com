@@ -1,6 +1,6 @@
 import { blogConfig } from '@/config';
 import { getBlocks, getDatabase } from '../notion-integration/notion-service';
-import { cache } from '@/lib/redis-cache';
+import { cache } from '@/shared/redis-cache';
 
 export type Post = {
   id: string;

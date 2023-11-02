@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import components from '@/components/mdx-components';
+import components from '@/shared/components/mdx-components';
 import { Snippet } from 'contentlayer/generated';
 import { SnippetLayout } from './snippet-layout';
 
