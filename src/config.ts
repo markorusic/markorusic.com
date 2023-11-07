@@ -82,7 +82,7 @@ export const resume = {
           content: `Directed engineering initiatives as Lead, setting coding standards, overseeing code reviews, and fostering team growth.`
         },
         {
-          content: `Built captivating user interfaces, leveraging TypeScript/React ecosystem expertise to enhance engagement and meet client requirements.`
+          content: `Built engaging user interfaces, leveraging React ecosystem expertise for multiple YC startups.`
         },
         {
           content: `Mentored and reviewed developers, elevating team skills through knowledge-sharing and targeted feedback.`
