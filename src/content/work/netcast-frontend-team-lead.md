@@ -1,6 +1,7 @@
 ---
 company: "NetCast"
 role: "Frontend Team Lead"
+description: "As a Frontend Team Lead, I led the architecture and development of a robust back-office portal to manage a video streaming platform, employing React and TypeScript."
 dateStart: "01/01/2019"
 dateEnd: "01/01/2023"
 ---

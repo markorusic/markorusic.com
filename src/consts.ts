@@ -5,8 +5,6 @@ export const SITE: Site = {
   IMAGE: "/me.webp",
   EMAIL: "markorusic98@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 3,
-  NUM_WORKS_ON_HOMEPAGE: 1,
-  NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
 
 export const HOME: Metadata = {

@@ -1,6 +1,7 @@
 ---
 company: "NetCast"
 role: "Full Stack Engineer"
+description: "As a Full Stack Engineer, I designed and implemented an engaging end-user TV content portal utilizing Vue.js, optimizing the user experience and interaction."
 dateStart: "09/01/2017"
 dateEnd: "01/01/2019"
 ---

@@ -1,0 +1,16 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { WORK } from "@consts";
+---
+
+<PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
+  <Container>
+    <div class="animate text-center flex flex-col gap-4">
+      <h1 class="font-semibold text-2xl text-black dark:text-white">
+        404 | Page not found
+      </h1>
+      <a href="/" class="text-lg underline">Go back home</a>
+    </div>
+  </Container>
+</PageLayout>
