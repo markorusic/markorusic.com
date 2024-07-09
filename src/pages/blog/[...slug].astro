@@ -41,7 +41,20 @@ const { Content } = await post.render();
       </div>
     </div>
     <article class="animate">
-      <Content />
+      {
+        post.data.externalUrl ? (
+          <div>
+            <h1 class="text-lg text-black dark:text-white">
+              This post is originally published on another site.
+            </h1>
+            <a href={post.data.externalUrl} class="text-sm underline">
+              Check out the original post there.
+            </a>
+          </div>
+        ) : (
+          <Content />
+        )
+      }
     </article>
   </Container>
 </PageLayout>
