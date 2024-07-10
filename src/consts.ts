@@ -42,6 +42,7 @@ export const RESUME_DATA = {
   email: "markorusic98@gmail.com",
   phoneNumber: "+381 60 4609090",
   location: "Belgrade, Serbia",
+  locationGoogleMaps: "https://www.google.com/maps/place/Belgrade",
   timeZone: "CET",
   avatar: "/me-lg.webp",
   about: [
