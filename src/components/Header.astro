@@ -3,7 +3,7 @@ import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 ---
 
-<header>
+<header class="print:hidden">
   <Container>
     <div class="flex flex-wrap gap-y-2 justify-end">
       <nav class="flex gap-1">
@@ -15,7 +15,7 @@ import Link from "@components/Link.astro";
         <span>
           {`/`}
         </span>
-        <Link href="/work"> work </Link>
+        <Link href="/resume"> resume </Link>
       </nav>
     </div>
   </Container>

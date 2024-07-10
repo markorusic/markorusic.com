@@ -4,25 +4,19 @@ import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
-import { SITE, HOME, SOCIALS } from "@consts";
+import { SITE, HOME, RESUME_DATA } from "@consts";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 
-const latestWork = (await getCollection("work"))
-  .sort(
-    (a, b) =>
-      new Date(b.data.dateStart).valueOf() -
-      new Date(a.data.dateStart).valueOf()
-  )
-  .at(0);
+const latestWorkExpiriance = RESUME_DATA.experience[0];
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
-    <div class="animate flex gap-4 items-center">
+    <div class="animate flex items-center gap-4">
       <img class="size-16 rounded-full" src={SITE.IMAGE} alt={SITE.NAME} />
       <h4 class="font-semibold text-black dark:text-white">
         Hi, I'm {SITE.NAME.split(" ").at(0)}
@@ -31,12 +25,12 @@ const latestWork = (await getCollection("work"))
     </div>
     <div class="space-y-16">
       <section>
-        <article class="space-y-4">
+        <article class="space-y-2">
           <p class="animate">
-            I am software engineer with a deep love for building practical and
-            creative solutions. With nearly a decade of experience in the tech
-            industry, I've had the opportunity to work on a diverse range of
-            projects across various domains.
+            I am software engineer with a deep passion for building practical
+            and creative solutions. With nearly a decade of experience in the
+            tech industry, I've had the opportunity to work on a diverse range
+            of projects across various domains.
           </p>
           <p class="animate">
             I specialize in full-stack development with TypeScript. I like
@@ -54,8 +48,8 @@ const latestWork = (await getCollection("work"))
         </article>
       </section>
 
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+      <section class="animate space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-y-2">
           <h5 class="font-semibold text-black dark:text-white">Latest posts</h5>
           <Link href="/blog"> See all posts </Link>
         </div>
@@ -71,17 +65,19 @@ const latestWork = (await getCollection("work"))
       </section>
 
       {
-        latestWork && (
-          <section class="animate space-y-6">
-            <div class="flex flex-wrap gap-y-2 items-center justify-between">
+        latestWorkExpiriance && (
+          <section class="animate space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-y-2">
               <h5 class="font-semibold text-black dark:text-white">My Work</h5>
-              <Link href="/work"> See all work </Link>
+              <Link href="/resume"> See full resume </Link>
             </div>
             <div class="font-semibold text-black dark:text-white">
-              {latestWork.data.company}
+              {latestWorkExpiriance.company}
             </div>
-            <div class="text-sm opacity-75">{latestWork.data.role}</div>
-            <article>{latestWork.data.description}</article>
+            <div class="text-sm opacity-75">
+              {latestWorkExpiriance.position}
+            </div>
+            <article>{latestWorkExpiriance.summary}</article>
           </section>
         )
       }
@@ -96,18 +92,22 @@ const latestWork = (await getCollection("work"))
         </article>
         <ul class="flex flex-wrap gap-2">
           {
-            SOCIALS.map((SOCIAL) => (
-              <li class="flex gap-x-2 text-nowrap">
-                <Link
-                  href={SOCIAL.HREF}
-                  external
-                  aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
-                >
-                  {SOCIAL.NAME}
-                </Link>
-                {"/"}
-              </li>
-            ))
+            Object.keys(RESUME_DATA.socials).map((socialName) => {
+              // @ts-expect-error - typescript is just not smart enough :(
+              const socialUrl = RESUME_DATA.socials[socialName] as string;
+              return (
+                <li class="flex gap-x-2 text-nowrap">
+                  <Link
+                    href={socialUrl}
+                    external
+                    aria-label={`${SITE.NAME} on ${socialName}`}
+                  >
+                    {socialName}
+                  </Link>
+                  {"/"}
+                </li>
+              );
+            })
           }
           <li class="line-clamp-1">
             <Link

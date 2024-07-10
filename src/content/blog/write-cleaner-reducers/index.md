@@ -179,7 +179,7 @@ export const counterReducer = createReducer(
       count: state.count - 1,
     }),
   },
-  initialState
+  initialState,
 );
 ```
 
@@ -223,7 +223,7 @@ export const counterReducer = createReducer(
       count: state.count - 1,
     }),
   },
-  initialState
+  initialState,
 );
 ```
 
