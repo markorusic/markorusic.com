@@ -86,7 +86,7 @@ export const RESUME_DATA = {
       ],
     },
     {
-      position: "Full Stack Engineer → Frontend Team Lead",
+      position: "Full Stack Engineer → Lead Frontend Engineer",
       company: "NetCast",
       location: "Belgrade, Serbia",
       dateStart: "01/09/2017",
