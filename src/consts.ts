@@ -91,7 +91,7 @@ export const RESUME_DATA = {
       company: "Povio (YC W14)",
       location: "Remote",
       dateStart: "04/01/2022",
-      dateEnd: "07/03/2024",
+      dateEnd: "08/03/2024",
       summary:
         "As a Lead Engineer, I created user experiences and systems for multiple YC startups. I led engineering projects, set coding standards, and managed code reviews. I also helped the team grow and mentored developers through knowledge-sharing and feedback.",
       bulletpoints: [
@@ -120,7 +120,7 @@ export const RESUME_DATA = {
     {
       institution: "ICT College Of Vocational Studies",
       description: "Bachelor's Degree in Informational Technologies.",
-      dateStart: "08/01/2017",
+      dateStart: "09/01/2017",
       dateEnd: "07/01/2021",
       location: "Belgrade, Serbia",
     },
