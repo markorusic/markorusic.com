@@ -47,7 +47,7 @@ export const RESUME_DATA = {
   avatar: "/me-lg.webp",
   about: [
     `For the past ${
-      new Date().getFullYear() - 2017
+      new Date().getFullYear() - 2016
     } years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.`,
     "During my career, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of setting proper time estimates on tasks, and communicating between the team and the product owners.",
     "I’m resourceful and curious. I know where and how to find answers to my questions in order to provide high-quality work. I enjoy working in a team of hardworking and ambitious individuals.",
@@ -91,7 +91,7 @@ export const RESUME_DATA = {
       company: "Povio (YC W14)",
       location: "Remote",
       dateStart: "04/01/2022",
-      dateEnd: "31/07/2024",
+      dateEnd: "07/31/2024",
       summary:
         "As a Lead Engineer, I created user experiences and systems for multiple YC startups. I led engineering projects, set coding standards, and managed code reviews. I also helped the team grow and mentored developers through knowledge-sharing and feedback.",
       bulletpoints: [
