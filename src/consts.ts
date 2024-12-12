@@ -75,7 +75,7 @@ export const RESUME_DATA = {
       position: "Lead Software Engineer",
       company: "Rivian",
       location: "Belgrade, Serbia",
-      dateStart: "05/08/2024",
+      dateStart: "08/05/2024",
       dateEnd: null,
       summary:
         "As a Lead Engineer at Rivian, I oversee the development and evolution of web infrastructure while leading a team of talented engineers. My focus is on driving technical excellence through modernization efforts, data-driven decisions, and close collaboration with leadership to achieve strategic objectives.",
@@ -91,7 +91,7 @@ export const RESUME_DATA = {
       company: "Povio (YC W14)",
       location: "Remote",
       dateStart: "04/01/2022",
-      dateEnd: "07/31/2024",
+      dateEnd: "07/03/2024",
       summary:
         "As a Lead Engineer, I created user experiences and systems for multiple YC startups. I led engineering projects, set coding standards, and managed code reviews. I also helped the team grow and mentored developers through knowledge-sharing and feedback.",
       bulletpoints: [
@@ -104,7 +104,7 @@ export const RESUME_DATA = {
       position: "Full Stack Engineer → Lead Frontend Engineer",
       company: "NetCast",
       location: "Belgrade, Serbia",
-      dateStart: "01/09/2017",
+      dateStart: "09/01/2017",
       dateEnd: "01/01/2023",
       summary:
         "As a lead engineer I guided my team in the successful development of large-scale applications, ensuring high quality and performance across all projects.",
@@ -120,8 +120,8 @@ export const RESUME_DATA = {
     {
       institution: "ICT College Of Vocational Studies",
       description: "Bachelor's Degree in Informational Technologies.",
-      dateStart: "01/08/2017",
-      dateEnd: "01/07/2021",
+      dateStart: "08/01/2017",
+      dateEnd: "07/01/2021",
       location: "Belgrade, Serbia",
     },
   ],
