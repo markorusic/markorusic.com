@@ -71,12 +71,27 @@ export const RESUME_DATA = {
     x: "https://x.com/markorusic_",
   },
   experience: [
+  {
+      position: "Lead Software Engineer",
+      company: "Rivian",
+      location: "Belgrade, Serbia",
+      dateStart: "05/08/2024",
+      dateEnd: null,
+      summary:
+        "As a Lead Engineer at Rivian, I oversee the development and evolution of web infrastructure while leading a team of talented engineers. My focus is on driving technical excellence through modernization efforts, data-driven decisions, and close collaboration with leadership to achieve strategic objectives.",
+      bulletpoints: [
+        "Lead a team responsible for managing and developing Rivian's website infrastructure.",
+        "Guide the re-architecture of the web development stack.",
+        "Drive data-driven decision making through AB testing and analytics tracking.",
+        "Collaborate directly with senior leadership to align technical initiatives.",
+      ],
+    },
     {
       position: "Frontend Engineer → Lead Software Engineer",
       company: "Povio (YC W14)",
       location: "Remote",
       dateStart: "04/01/2022",
-      dateEnd: null,
+      dateEnd: "31/07/2024",
       summary:
         "As a Lead Engineer, I created user experiences and systems for multiple YC startups. I led engineering projects, set coding standards, and managed code reviews. I also helped the team grow and mentored developers through knowledge-sharing and feedback.",
       bulletpoints: [
