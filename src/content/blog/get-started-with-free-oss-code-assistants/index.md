@@ -1,5 +1,5 @@
 ---
-title: "Getting started with free OSS code assistants"
+title: "Get started with free OSS code assistants"
 description: "Quick guide on how to get started with free OSS code assistants"
 date: "01/27/2025"
 ---
