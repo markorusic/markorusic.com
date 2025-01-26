@@ -1,7 +1,7 @@
 ---
 title: "Getting started with free OSS code assistants"
 description: "Quick guide on how to get started with free OSS code assistants"
-date: "01/02/2025"
+date: "01/27/2025"
 ---
 
 AI-powered tools for developers are more popular than ever, with many services, code editors, extensions emerging every day. While these tools are usually helpfull and convinient, they often come with monthly fees and require sending your data to their servers.
