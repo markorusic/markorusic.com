@@ -20,7 +20,7 @@ In this piece, we’ll examine the famous Counter app example and it’s reducer
 
 This is our app:
 
-![App](./app.webp)
+![App](./app.png)
 
 It contains one piece of state, current count and two actions, increment and decrement. The typical reducer may look like this:
 
