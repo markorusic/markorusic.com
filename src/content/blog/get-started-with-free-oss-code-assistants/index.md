@@ -82,6 +82,6 @@ By default Continue collects and reports [telemetry](https://docs.continue.dev/t
 }
 ```
 
-## We all setup! 🚀
+## We're all setup! 🚀
 
 Open the Continue extension from your sidebar in VSCode and get to work!
