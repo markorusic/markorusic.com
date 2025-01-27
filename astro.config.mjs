@@ -6,7 +6,7 @@ import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://markorusic-com-v2.vercel.app",
+  site: "https://markorusic.com",
   integrations: [
     expressiveCode({ themes: ["vitesse-dark"] }),
     mdx(),

@@ -1,6 +1,7 @@
 ---
 title: "Get started with free OSS AI code assistants"
 description: "Quick guide on how to get started with free OSS code assistants"
+image: ollama-cover.png
 date: "01/27/2025"
 ---
 
