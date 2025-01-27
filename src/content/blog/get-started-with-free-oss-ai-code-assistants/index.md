@@ -20,7 +20,9 @@ ollama help
 
 Ollama offers a wide collection of models, each with multiple options depending on the number of parameters used during training. In general, models with more parameters provide better accuracy and understanding of tasks. However, this increased precision comes at the cost of more storage and compute on your local machine.
 
-I usually prefer sticking with the default configurations for most models. They tend to strike a good balance of accuracy and performance. Here are the models I'am running at the moment. Keep in mind you'll need ~15GB of disk space to store these.
+I usually prefer sticking with the default configurations for most models. They tend to strike a good balance of accuracy and performance while being resource-friendly. It’s important to note that these default configurations are not the most powerful options available—those are often provided by paid third-party services. While it is possible to run such high-end models locally, they require very strong hardware to handle the increased demands.
+
+Here are the models I'am running at the moment. Keep in mind you'll need ~15GB of disk space to store these.
 
 - **Llama** - general purpose model sutable for simple tasks:
 
