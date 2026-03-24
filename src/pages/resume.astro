@@ -3,6 +3,10 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { RESUME, RESUME_DATA } from "@consts";
 import { dateRange } from "@lib/utils";
+
+const [firstExperience] = RESUME_DATA.experience.slice(-1);
+const yearsExperience =
+  new Date().getFullYear() - new Date(firstExperience.dateStart).getFullYear();
 ---
 
 <PageLayout title={RESUME.TITLE} description={RESUME.DESCRIPTION}>
@@ -69,27 +73,6 @@ import { dateRange } from "@lib/utils";
               </svg>
             </a>
             <a
-              href={`tel:${RESUME_DATA.phoneNumber}`}
-              class="inline-flex size-8 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-phone size-4"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                ></path>
-              </svg>
-            </a>
-            <a
               href={RESUME_DATA.socials.github}
               target="_blank"
               class="inline-flex size-8 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
@@ -122,32 +105,12 @@ import { dateRange } from "@lib/utils";
                 ></path>
               </svg>
             </a>
-            <a
-              href={RESUME_DATA.socials.x}
-              target="_blank"
-              class="inline-flex size-8 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                class="size-4"
-              >
-                <title>X</title>
-                <path
-                  fill="currentColor"
-                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                ></path>
-              </svg>
-            </a>
           </div>
           <div
             class="hidden flex-col gap-x-1 text-sm text-muted-foreground print:flex print:text-[12px]"
           >
             <a href={`mailto:${RESUME_DATA.email}`}>
               <span class="underline">{RESUME_DATA.email}</span>
-            </a>
-            <a href={`tel:${RESUME_DATA.phoneNumber}`}>
-              <span class="underline">{RESUME_DATA.phoneNumber}</span>
             </a>
           </div>
         </div>
@@ -160,13 +123,16 @@ import { dateRange } from "@lib/utils";
         </span>
       </div>
       <section class="animate flex min-h-0 flex-col gap-y-3">
-        <h2 class="text-xl font-bold text-foreground">About</h2>
+        <h2 class="text-xl font-bold text-foreground print:text-lg">About</h2>
         <div class="flex flex-col space-y-2">
           {
             RESUME_DATA.about.map((sentence) => {
               return (
                 <p class="text-pretty text-sm text-muted-foreground print:text-[12px]">
-                  {sentence}
+                  {sentence.replace(
+                    "{yearsExperience}",
+                    yearsExperience.toString(),
+                  )}
                 </p>
               );
             })
@@ -174,7 +140,9 @@ import { dateRange } from "@lib/utils";
         </div>
       </section>
       <section class="animate flex min-h-0 flex-col gap-y-3">
-        <h2 class="text-xl font-bold text-foreground">Work Experience</h2>
+        <h2 class="text-xl font-bold text-foreground print:text-lg">
+          Work Experience
+        </h2>
         {
           RESUME_DATA.experience.map((experience) => {
             return (
@@ -182,7 +150,7 @@ import { dateRange } from "@lib/utils";
                 <div class="flex flex-col space-y-1.5">
                   <div class="flex items-center justify-between gap-x-2 text-base">
                     <h3 class="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                      <span>{experience.company}</span>
+                      <span class="print:text-sm">{experience.company}</span>
                       <span class="inline-flex gap-x-1">
                         <div class="inline-flex items-center text-nowrap rounded-md border border-transparent bg-secondary px-2 py-0.5 align-middle text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/60 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 print:px-1 print:py-0.5 print:text-[8px] print:leading-tight">
                           {experience.location}
@@ -202,7 +170,7 @@ import { dateRange } from "@lib/utils";
                     {experience.position}
                   </h4>
                 </div>
-                <ul class="mt-2 flex list-inside list-disc flex-col gap-1.5 text-pretty text-sm text-muted-foreground">
+                <ul class="mt-2 flex list-inside list-disc flex-col gap-1.5 text-pretty text-sm text-muted-foreground print:text-[12px]">
                   {experience.bulletpoints.map((item) => {
                     return <li>{item}</li>;
                   })}
@@ -213,7 +181,9 @@ import { dateRange } from "@lib/utils";
         }
       </section>
       <section class="animate flex min-h-0 flex-col gap-y-3">
-        <h2 class="text-xl font-bold text-foreground">Education</h2>
+        <h2 class="text-xl font-bold text-foreground print:text-lg">
+          Education
+        </h2>
         {
           RESUME_DATA.education.map((education) => {
             return (
@@ -244,12 +214,16 @@ import { dateRange } from "@lib/utils";
           })
         }
         <section class="flex min-h-0 flex-col gap-y-3">
-          <h2 class="text-xl font-bold text-foreground">Skills</h2>
-          <div class="flex flex-wrap gap-1 print:gap-2">
+          <h2 class="text-xl font-bold text-foreground print:text-lg">
+            Skills
+          </h2>
+          <div
+            class="flex flex-wrap gap-2 text-muted-foreground print:text-[12px]"
+          >
             {
               RESUME_DATA.skills.map((skill) => {
                 return (
-                  <div class="inline-flex items-center text-nowrap rounded-md border border-transparent bg-primary/80 px-2 py-0.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/60 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 print:p-0 print:text-[10px]">
+                  <div class="inline-flex items-center text-nowrap text-sm print:text-[12px]">
                     {skill}
                   </div>
                 );

@@ -40,54 +40,48 @@ export const RESUME_DATA = {
   title:
     "Software Engineer with a deep passion for building practical and creative solutions.",
   email: "markorusic98@gmail.com",
-  phoneNumber: "+381 60 4609090",
   location: "Belgrade, Serbia",
   locationGoogleMaps: "https://www.google.com/maps/place/Belgrade",
   timeZone: "CET",
   avatar: "/me-lg.webp",
   about: [
-    `For the past ${
-      new Date().getFullYear() - 2016
-    } years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.`,
+    `For the past {yearsExperience} years, I've had an opportunity to work on many projects as a frontend engineer in a wide variety of fields. I’m responsible, with a good work ethic. I enjoy taking initiative and ownership over projects and seeing them through to completion.`,
     "During my career, I was also in charge of mentoring other team members, sharing tasks between them, and giving them regular, honest, and constructive feedback about their work. On the other hand, I was also in charge of setting proper time estimates on tasks, and communicating between the team and the product owners.",
     "I’m resourceful and curious. I know where and how to find answers to my questions in order to provide high-quality work. I enjoy working in a team of hardworking and ambitious individuals.",
   ],
   skills: [
     "Problem Solving",
     "Software Architecture",
-    "Technical Leadership",
     "Team Leadership",
-    "JavaScript",
     "TypeScript",
-    "React/Next.js/Remix",
+    "React/Next.js/Remix/TanStack",
     "React Native/Expo",
-    "Node.js",
+    "Node.js/Fastify/Hono",
     "MySQL/PostgreSQL/Redis",
     "Docker",
   ],
   socials: {
-    github: "https://github.com/markorusic",
     linkedin: "https://www.linkedin.com/in/markorusic/",
-    x: "https://x.com/markorusic_",
+    github: "https://github.com/markorusic",
   },
   experience: [
-  {
-      position: "Lead Software Engineer",
+    {
+      position: "Staff Software Engineer",
       company: "Rivian",
       location: "Belgrade, Serbia",
       dateStart: "08/05/2024",
       dateEnd: null,
       summary:
-        "As a Lead Engineer at Rivian, I oversee the development and evolution of web infrastructure while leading a team of talented engineers. My focus is on driving technical excellence through modernization efforts, data-driven decisions, and close collaboration with leadership to achieve strategic objectives.",
+        "As a Staff Engineer at Rivian, I oversee the development and evolution of web infrastructure while leading a team of talented engineers. My focus is on driving technical excellence through modernization efforts, data-driven decisions, and close collaboration with leadership to achieve strategic objectives.",
       bulletpoints: [
-        "Lead a team responsible for managing and developing Rivian's website infrastructure.",
+        "Lead a team responsible for managing and developing Rivian's website.",
         "Guide the re-architecture of the web development stack.",
         "Drive data-driven decision making through AB testing and analytics tracking.",
         "Collaborate directly with senior leadership to align technical initiatives.",
       ],
     },
     {
-      position: "Frontend Engineer → Lead Software Engineer",
+      position: "Senior Software Engineer → Lead Software Engineer",
       company: "Povio (YC W14)",
       location: "Remote",
       dateStart: "04/01/2022",
